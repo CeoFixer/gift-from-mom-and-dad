@@ -1,0 +1,7 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {Chess} from '../vendor/chess.js';import {CHESS_PUZZLES,flight,positionAt,lightColor} from './discovery-data.js';
+test('each chess puzzle starts legally, and every mate-in-one is recognized',()=>{for(const p of CHESS_PUZZLES){const c=new Chess(p.fen);assert.equal(c.isCheck(),false);const black=new Chess(p.fen.replace(' w ',' b '));assert.equal(black.isCheck(),false);let mates=0;for(const m of c.moves({verbose:true})){c.move(m);if(c.isCheckmate())mates++;c.undo();}assert.ok(mates>=1,p.name);assert.equal(mates,1,p.name+' has a unique solution');}});
+test('ballistic model preserves launch and landing and weaker gravity increases range',()=>{for(const g of [9.81,1.62])for(const a of [15,45,75]){const f=flight(a,g);assert.equal(positionAt(0,a,g).y,0);assert.ok(positionAt(f.duration,a,g).y<1e-10);assert.ok(Math.abs(positionAt(f.duration/2,a,g).y-f.height)<1e-10);}assert.ok(Math.abs(flight(45,1.62).range/flight(45,9.81).range-9.81/1.62)<1e-10);assert.equal(lightColor(255,255,0),'rgb(255, 255, 0)');assert.equal(lightColor(255,255,255),'rgb(255, 255, 255)');});
+
+import {neighborLocation} from './neighbors.js';
+test('Veronika remains reachable after moving school in the map workshop',()=>{for(const x of [250,900,8750])for(let t=0;t<30;t+=.5){const p=neighborLocation('Veronika',x,160,t,true);assert.ok(p.x>=35&&p.x<=8965);assert.equal(p.z,-430);}});
