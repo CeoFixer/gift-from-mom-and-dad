@@ -3,7 +3,7 @@ import {setupDiscovery} from '../comics/discovery.js';
 import {setupSkate} from '../comics/skate.js';
 import {setupEpisodes} from '../comics/episodes.js';
 import {setupFamily} from '../comics/family.js';
-import {make3DCity} from './scene.js';
+import {make3DCity} from './scene.js?v=discovery-1';
 import {setupConcert,drawConcert} from '../comics/concert.js';
 import {CHAPTERS,TOTAL,currentMission,checkAnswer,loadProgress,saveProgress} from '../comics/adventure.js';
 import {WORLD_WIDTH,GROUND,MAP_KEY,defaultMap,validateMap,loadMap,stepHero,jumpHero} from '../comics/world.js';
