@@ -1,4 +1,4 @@
-import {neighborOffset,neighborLocation} from '../comics/neighbors.js';
+import {neighborOffset,neighborLocation} from '../comics/neighbors.js?v=quiet-garden-1';
 import {viewDirection} from './facing.js';
 import {buildNeighborhood} from './architecture.js';
 import * as THREE from '../vendor/three.module.js';
