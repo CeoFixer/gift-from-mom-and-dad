@@ -1,0 +1,9 @@
+{
+  "name": "gift-from-mom-and-dad",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test comics/game.test.js comics-3d/facing.test.js",
+    "start": "python3 -m http.server 8093 --bind 127.0.0.1"
+  }
+}
